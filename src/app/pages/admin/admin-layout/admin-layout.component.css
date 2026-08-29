@@ -1,0 +1,86 @@
+/* ===== FURNI ADMIN LAYOUT ===== */
+:root {
+  --green-dark: #2d4a3e;
+  --green-mid: #3a5f51;
+  --green-light: #4a7c68;
+  --yellow: #f0b429;
+  --yellow-hover: #d9a020;
+  --bg: #2d4a3e;
+  --white: #ffffff;
+  --text-dark: #0d0d0d;
+  --text-muted: #4a5568;
+  --border: #dde8e3;
+  --shadow: 0 4px 20px rgba(45, 74, 62, 0.08);
+}
+
+.admin-wrapper {
+  display: flex;
+  min-height: 100vh;
+  background: var(--bg);
+  font-family: 'Segoe UI', system-ui, sans-serif;
+}
+
+/* ===== SIDEBAR ===== */
+.sidebar {
+  width: 230px;
+  background: #2d4a3e;
+  color: white;
+  padding: 28px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  box-shadow: 4px 0 20px rgba(0, 0, 0, 0.12);
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.sidebar h3 {
+  font-size: 22px;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 32px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(255,255,255,0.12);
+  letter-spacing: -0.3px;
+}
+
+.sidebar h3 span {
+  color: var(--yellow);
+}
+
+.sidebar a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: rgba(255,255,255,0.7);
+  padding: 11px 14px;
+  text-decoration: none;
+  border-radius: 8px;
+  margin-bottom: 2px;
+  font-size: 14.5px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  letter-spacing: 0.1px;
+}
+
+.sidebar a:hover {
+  background: rgba(255,255,255,0.1);
+  color: white;
+  transform: translateX(3px);
+}
+
+.sidebar a.active {
+  background: var(--yellow);
+  color: var(--green-dark);
+  font-weight: 700;
+  box-shadow: 0 4px 12px rgba(240, 180, 41, 0.35);
+}
+
+/* ===== MAIN CONTENT ===== */
+.content {
+  flex: 1;
+  padding: 36px;
+  overflow-y: auto;
+}

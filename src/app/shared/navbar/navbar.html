@@ -1,0 +1,99 @@
+<!-- Start Header/Navigation -->
+<nav
+  class="custom-navbar navbar navbar-expand-md navbar-dark"
+  aria-label="Furni navigation bar"
+>
+  <div class="container">
+
+    <!-- Logo -->
+    <a class="navbar-brand" href="#home">
+      Furni<span>.</span>
+    </a>
+
+    <!-- Mobile Toggle -->
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarsFurni"
+      aria-controls="navbarsFurni"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Navbar Content -->
+    <div class="collapse navbar-collapse" id="navbarsFurni">
+
+      <!-- LEFT NAV LINKS -->
+      <ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
+        <li class="nav-item">
+          <a class="nav-link" href="#home">Home</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="#shop">Shop</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="#about">About</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="#services">Services</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="#contact">Contact</a>
+        </li>
+      </ul>
+     
+<!-- ADMIN PANEL BUTTON -->
+<li class="nav-item" *ngIf="isAdmin()">
+  <a class="nav-link fw-bold text-warning" routerLink="/admin">
+    Admin Panel
+  </a>
+</li>
+
+       <!-- RIGHT ICONS -->
+      <ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
+
+  <!-- USER NOT LOGGED IN -->
+<li class="nav-item" *ngIf="!authService.isLoggedIn()">
+  <a class="nav-link" routerLink="/login">
+    <img src="assets/images/user.svg" alt="Login" />
+  </a>
+</li>
+
+<!-- USER LOGGED IN -->
+<li
+  class="nav-item d-flex align-items-center gap-2"
+  *ngIf="authService.isLoggedIn()"
+>
+  <a class="nav-link" routerLink="/profile">
+    <img src="assets/images/user.svg" alt="Profile" />
+  </a>
+   <a class="nav-link fw-bold" routerLink="/profile">
+    {{ authService.getUser()?.name }}
+  </a>
+</li>
+
+<!-- CART ICON -->
+<li class="nav-item position-relative ms-3">
+  <a class="nav-link" routerLink="/cart">
+    <img src="assets/images/cart.svg" />
+
+    <span
+      *ngIf="cartService.getCartCount() > 0"
+      class="cart-count"
+    >
+      {{ cartService.getCartCount() }}
+    </span>
+  </a>
+</li>
+</ul>
+    </div>
+  </div>
+</nav>
+<!-- End Header/Navigation -->

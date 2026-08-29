@@ -1,0 +1,53 @@
+<div class="admin-container" *ngIf="!loading && stats">
+
+  <div class="dashboard-cards">
+
+    <div class="dashboard-card" (click)="goTo('/admin/products')">
+      <h3>Products</h3>
+      <p>{{ stats.totalProducts }}</p>
+    </div>
+
+    <div class="dashboard-card" (click)="goTo('/admin/users')">
+      <h3>Users</h3>
+      <p>{{ stats.totalUsers }}</p>
+    </div>
+
+    <div class="dashboard-card" (click)="goTo('/admin/orders')">
+      <h3>Orders</h3>
+      <p>{{ stats.totalOrders }}</p>
+    </div>
+
+    <div class="dashboard-card">
+      <h3>Total Revenue</h3>
+      <p>Rs. {{ stats.totalRevenue }}</p>
+    </div>
+
+  </div>
+
+  <h3 style="margin-top:40px;">Recent Orders</h3>
+
+  <table class="admin-table" *ngIf="recentOrders.length > 0">
+    <thead>
+      <tr>
+        <th>Order ID</th>
+        <th>Customer</th>
+        <th>Amount</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let order of recentOrders">
+        <td>{{ order._id }}</td>
+        <td>{{ order.customer?.name }}</td>
+        <td>Rs. {{ order.totalAmount }}</td>
+        <td>{{ order.paymentStatus }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+
+<!-- Optional Loading UI -->
+<div *ngIf="loading" style="padding:40px;">
+  Loading dashboard...
+</div>

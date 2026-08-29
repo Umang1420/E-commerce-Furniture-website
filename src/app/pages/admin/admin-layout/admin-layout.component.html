@@ -1,0 +1,24 @@
+<!-- TOP NAVBAR -->
+<app-navbar></app-navbar>
+
+<div class="admin-wrapper">
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <h3>Admin Panel</h3>
+
+    <a routerLink="/admin" routerLinkActive="">Dashboard</a>
+    <a routerLink="/admin/products" routerLinkActive="active">Products</a>
+    <a routerLink="/admin/add-product" routerLinkActive="active">Add Product</a>
+    <a routerLink="/admin/users" routerLinkActive="active">Users</a>
+    <a routerLink="/admin/contacts" routerLinkActive="active">Contact Requests</a>
+    <a routerLink="/admin/orders" routerLinkActive="active">
+  Orders
+</a>
+
+  </aside>
+
+  <!-- PAGE CONTENT -->
+  <main class="content">
+    <router-outlet></router-outlet>
+  </main>
+</div>

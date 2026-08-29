@@ -1,0 +1,192 @@
+<!-- Hero Section -->
+<div class="hero">
+  <div class="container">
+    <div class="row justify-content-between">
+      <div class="col-lg-5">
+        <div class="intro-excerpt">
+          <h1>Shopping Cart</h1>
+        </div>
+      </div>
+      <div class="col-lg-7"></div>
+    </div>
+  </div>
+</div>
+<!-- End Hero Section -->
+
+
+<!-- Cart Section -->
+<div class="untree_co-section before-footer-section">
+  <div class="container">
+
+    <!-- Table Header -->
+    <div class="row mb-4 text-center fw-bold border-bottom pb-3">
+      <div class="col-2">Image</div>
+      <div class="col-3 text-start">Product</div>
+      <div class="col-2">Price</div>
+      <div class="col-3">Quantity</div>
+      <div class="col-2">Total</div>
+      <div class="col-1">Remove</div>
+    </div>
+
+    <!-- Cart Items -->
+    <div
+      class="row align-items-center text-center mb-4"
+      *ngFor="let item of cartService.getItems()"
+    >
+      <!-- Image -->
+      <div class="col-2">
+        <img
+          [src]="'assets/images/' + item.image"
+          class="img-fluid"
+          style="max-width: 80px"
+        />
+      </div>
+
+      <!-- Product -->
+      <div class="col-3 text-start">
+        <h5 class="text-black">{{ item.name }}</h5>
+      </div>
+
+      <!-- Price -->
+      <div class="col-2">
+        ₹{{ item.price }}
+      </div>
+
+      <!-- Quantity -->
+      <div class="col-3">
+        <div class="d-flex justify-content-center align-items-center">
+          <button
+            class="btn btn-outline-black btn-sm"
+            (click)="cartService.decrease(item)"
+          >
+            −
+          </button>
+
+          <input
+            class="form-control text-center mx-2"
+            style="width: 60px"
+            [value]="item.quantity"
+            readonly
+          />
+
+          <button
+            class="btn btn-outline-black btn-sm"
+            (click)="cartService.increase(item)"
+          >
+            +
+          </button>
+        </div>
+      </div>
+
+      <!-- Total -->
+      <div class="col-2">
+        ₹{{ item.price * item.quantity }}
+      </div>
+
+      <!-- Remove -->
+      <div class="col-1">
+        <button
+          class="btn btn-black btn-sm"
+          (click)="cartService.remove(item)"
+        >
+          ×
+        </button>
+      </div>
+    </div>
+
+    <hr />
+
+    <!-- Cart Actions -->
+    <div class="row mb-5">
+      <div class="col-md-6 mb-3 mb-md-0">
+        <button class="btn btn-black btn-sm btn-block">
+          Update Cart
+        </button>
+      </div>
+      <div class="col-md-6 text-md-end">
+        <a routerLink="/shop" class="btn btn-outline-black btn-sm btn-block">
+          Continue Shopping
+        </a>
+      </div>
+    </div>
+
+    <!-- Coupon + Totals -->
+    <div class="row">
+      <!-- Coupon -->
+      <div class="col-md-6">
+        <h4 class="text-black">Coupon</h4>
+        <p>Enter your coupon code if you have one.</p>
+
+        <div class="row">
+          <div class="col-md-8 mb-3 mb-md-0">
+            <input
+              type="text"
+              class="form-control py-3"
+              placeholder="Coupon Code"
+              [(ngModel)]="couponCode"
+            />
+          </div>
+          <div class="col-md-4">
+            <button
+              class="btn btn-black"
+              (click)="applyCoupon()"
+            >
+              Apply Coupon
+            </button>
+          </div>
+        </div>
+
+        <p
+          class="mt-2 text-success"
+          *ngIf="couponMessage === 'Coupon applied successfully!'"
+        >
+          {{ couponMessage }}
+        </p>
+
+        <p
+          class="mt-2 text-danger"
+          *ngIf="couponMessage === 'Invalid coupon code'"
+        >
+          {{ couponMessage }}
+        </p>
+      </div>
+
+      <!-- Totals -->
+      <div class="col-md-6 text-end">
+        <h3 class="text-black">Cart Totals</h3>
+
+        <div class="row mb-2">
+          <div class="col-6 text-start">Subtotal</div>
+          <div class="col-6">
+            ₹{{ cartService.getSubtotal() }}
+          </div>
+        </div>
+
+        <div
+          class="row mb-2"
+          *ngIf="cartService.getDiscount() > 0"
+        >
+          <div class="col-6 text-start">Discount</div>
+          <div class="col-6">
+            − ₹{{ cartService.getDiscount() }}
+          </div>
+        </div>
+
+        <div class="row mb-4 fw-bold">
+          <div class="col-6 text-start">Total</div>
+          <div class="col-6">
+            ₹{{ cartService.getFinalTotal() }}
+          </div>
+        </div>
+
+        <a
+          routerLink="/checkout"
+          class="btn btn-black btn-lg py-3"
+        >
+          Proceed To Checkout
+        </a>
+      </div>
+    </div>
+
+  </div>
+</div>

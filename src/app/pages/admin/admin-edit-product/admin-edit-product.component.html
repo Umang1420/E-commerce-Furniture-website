@@ -1,0 +1,19 @@
+<h2>Edit Product</h2>
+
+<div *ngIf="loading">
+  Loading...
+</div>
+
+<div *ngIf="product">
+
+  <input [(ngModel)]="product.name">
+
+  <input [(ngModel)]="product.price">
+
+  <input [(ngModel)]="product.image">
+
+  <textarea [(ngModel)]="product.description"></textarea>
+
+  <button (click)="updateProduct()">Update</button>
+
+</div>

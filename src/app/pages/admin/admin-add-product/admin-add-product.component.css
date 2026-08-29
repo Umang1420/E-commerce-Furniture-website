@@ -1,0 +1,93 @@
+/* ===== FURNI ADMIN ADD PRODUCT ===== */
+:root {
+  --green-dark: #2d4a3e;
+  --yellow: #f0b429;
+  --bg: #f0f4f1;
+  --white: #ffffff;
+  --text-dark: #0d0d0d;
+  --text-muted: #4a5568;
+  --border: #dde8e3;
+  --shadow: 0 4px 20px rgba(45, 74, 62, 0.08);
+}
+
+h2 {
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 28px;
+  letter-spacing: -0.4px;
+}
+
+.form-box {
+  background: var(--white);
+  padding: 32px;
+  border-radius: 16px;
+  width: 440px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+
+.form-box label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.form-box input,
+.form-box textarea {
+  width: 100%;
+  padding: 12px 14px;
+  margin-bottom: 16px;
+  border-radius: 10px;
+  border: 1.5px solid var(--border);
+  background: #ffffff;
+  font-size: 14px;
+  color: var(--text-dark);
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+  font-family: inherit;
+}
+
+.form-box input:focus,
+.form-box textarea:focus {
+  outline: none;
+  border-color: var(--green-dark);
+  background: var(--white);
+  box-shadow: 0 0 0 3px rgba(45, 74, 62, 0.08);
+}
+
+.form-box textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* ===== ADD BUTTON ===== */
+.form-box button {
+  width: 100%;
+  padding: 13px;
+  background: var(--green-dark);
+  color: #2d4a3e;
+  border: 2px solid #2d4a3e;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  transition: all 0.25s ease;
+  margin-top: 4px;
+}
+
+.form-box button:hover {
+  background: #1e3a2f;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(45, 74, 62, 0.3);
+}
+
+.form-box button:active {
+  transform: translateY(0);
+}

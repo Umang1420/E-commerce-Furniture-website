@@ -1,0 +1,208 @@
+<div class="untree_co-section">
+  <div class="container">
+
+    <!-- Returning customer -->
+    <div class="row mb-5">
+      <div class="col-md-12">
+        <div class="border p-4 rounded" role="alert">
+          Returning customer?
+          <a routerLink="/login">Click here</a> to login
+        </div>
+      </div>
+    </div>
+
+    <form #checkoutForm="ngForm" (ngSubmit)="placeOrder(checkoutForm)">
+
+      <div class="row">
+
+        <!-- BILLING DETAILS -->
+        <div class="col-md-6 mb-5 mb-md-0">
+          <h2 class="h3 mb-3 text-black">Billing Details</h2>
+
+          <div class="p-3 p-lg-5 border bg-white">
+
+            <!-- Country -->
+            <div class="form-group mb-3">
+              <label class="text-black">Country <span class="text-danger">*</span></label>
+              <select class="form-control" required [(ngModel)]="billing.country" name="country">
+                <option value="">Select a country</option>
+                <option>India</option>
+                <option>Bangladesh</option>
+                <option>Algeria</option>
+                <option>Afghanistan</option>
+              </select>
+            </div>
+
+            <!-- Name -->
+            <div class="form-group row">
+              <div class="col-md-6 mb-3">
+                <label class="text-black">First Name *</label>
+                <input class="form-control" required [(ngModel)]="billing.firstName" name="firstName">
+              </div>
+              <div class="col-md-6 mb-3">
+                <label class="text-black">Last Name *</label>
+                <input class="form-control" required [(ngModel)]="billing.lastName" name="lastName">
+              </div>
+            </div>
+
+            <!-- Address -->
+            <div class="form-group mb-3">
+              <label class="text-black">Address *</label>
+              <input class="form-control" required [(ngModel)]="billing.address" name="address">
+            </div>
+
+            <!-- City, State & Zip -->
+<div class="form-group row">
+
+  <div class="col-md-4 mb-3">
+    <label class="text-black">City *</label>
+    <input
+      class="form-control"
+      required
+      [(ngModel)]="billing.city"
+      name="city"
+      placeholder="Enter city">
+  </div>
+
+  <div class="col-md-4 mb-3">
+    <label class="text-black">State *</label>
+    <input
+      class="form-control"
+      required
+      [(ngModel)]="billing.state"
+      name="state"
+      placeholder="Enter state">
+  </div>
+
+  <div class="col-md-4 mb-3">
+    <label class="text-black">Zip *</label>
+    <input
+      class="form-control"
+      required
+      [(ngModel)]="billing.zip"
+      name="zip"
+      placeholder="Enter zip code">
+  </div>
+
+</div>
+
+
+            <!-- Email & Phone -->
+            <div class="form-group row mb-4">
+              <div class="col-md-6 mb-3">
+                <label class="text-black">Email *</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  required
+                  email
+                  [(ngModel)]="billing.email"
+                  name="email"
+                  #email="ngModel">
+                <small class="text-danger" *ngIf="email.invalid && email.touched">
+                  Enter valid email
+                </small>
+              </div>
+
+              <div class="col-md-6 mb-3">
+                <label class="text-black">Phone *</label>
+                <input class="form-control" required [(ngModel)]="billing.phone" name="phone">
+              </div>
+            </div>
+
+            <!-- Notes -->
+            <div class="form-group">
+              <label class="text-black">Order Notes</label>
+              <textarea class="form-control" rows="4"
+                [(ngModel)]="billing.notes" name="notes"></textarea>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- RIGHT SIDE -->
+        <div class="col-md-6">
+
+          <!-- Coupon -->
+          <div class="row mb-5">
+            <div class="col-md-12">
+              <h2 class="h3 mb-3 text-black">Coupon Code</h2>
+              <div class="p-3 p-lg-5 border bg-white">
+
+                <input
+  class="form-control mb-3"
+  placeholder="Coupon Code"
+  [(ngModel)]="couponCode"
+  name="coupon"
+  [disabled]="couponApplied">
+
+
+                <button type="button" class="btn btn-black btn-sm" (click)="applyCoupon()">
+                  Apply
+                </button>
+
+                <p class="mt-2 text-success" *ngIf="couponMessage === 'applied'">
+                  Coupon applied successfully
+                </p>
+                <p class="mt-2 text-danger" *ngIf="couponMessage === 'invalid'">
+                  Invalid coupon
+                </p>
+
+              </div>
+            </div>
+          </div>
+
+          <!-- Order Summary -->
+          <div class="row mb-5">
+            <div class="col-md-12">
+              <h2 class="h3 mb-3 text-black">Your Order</h2>
+              <div class="p-3 p-lg-5 border bg-white">
+
+                <table class="table site-block-order-table mb-4">
+                  <thead>
+                    <tr>
+                      <th>Product</th>
+                      <th>Total</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let item of cartService.getItems()">
+                      <td>{{ item.name }} × {{ item.quantity }}</td>
+                      <td>₹{{ item.price * item.quantity }}</td>
+                    </tr>
+
+                    <tr>
+                      <td><strong>Subtotal</strong></td>
+                      <td>₹{{ cartService.getSubtotal() }}</td>
+                    </tr>
+
+                    <tr *ngIf="cartService.getDiscount() > 0">
+                      <td><strong>Discount</strong></td>
+                      <td>- ₹{{ cartService.getDiscount() }}</td>
+                    </tr>
+
+                    <tr>
+                      <td><strong>Total</strong></td>
+                      <td><strong>₹{{ cartService.getFinalTotal() }}</strong></td>
+                    </tr>
+                  </tbody>
+                </table>
+
+              <button
+  class="btn btn-black btn-lg py-3 btn-block"
+  type="submit"
+  [disabled]="checkoutForm.invalid">
+  Place Order
+</button>
+
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </form>
+  </div>
+</div>

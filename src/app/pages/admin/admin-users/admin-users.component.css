@@ -1,0 +1,107 @@
+/* ===== FURNI ADMIN USERS ===== */
+:root {
+  --green-dark: #2d4a3e;
+  --yellow: #f0b429;
+  --bg: #f0f4f1;
+  --white: #ffffff;
+  --text-dark: #0d0d0d;
+  --text-muted: #374151;
+  --border: #dde8e3;
+  --shadow: 0 4px 20px rgba(45, 74, 62, 0.08);
+}
+
+h2 {
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 28px;
+  letter-spacing: -0.4px;
+}
+
+.table-wrapper {
+  background: var(--white);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: transparent;
+}
+
+thead {
+  background: var(--green-dark);
+}
+
+th {
+  background: transparent;
+  
+  color: #2d4a3e;
+  padding: 14px 18px;
+  text-align: left;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
+
+td {
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--border);
+  font-size: 14px;
+  color: var(--text-dark);
+  vertical-align: middle;
+}
+
+tbody tr:last-child td {
+  border-bottom: none;
+}
+
+tbody tr:hover {
+  background: #f3f6f4;
+}
+
+/* ===== ROLE BADGE ===== */
+.badge-admin {
+  display: inline-block;
+  padding: 4px 12px;
+  background: rgba(240, 180, 41, 0.15);
+  color: #9a6e00;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.badge-user {
+  display: inline-block;
+  padding: 4px 12px;
+  background: rgba(45, 74, 62, 0.1);
+  color: var(--green-dark);
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* ===== DELETE BUTTON ===== */
+.delete-btn {
+  padding: 7px 16px;
+  background: #fef2f2;
+  color: #dc2626;
+  border: 1px solid #fecaca;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.delete-btn:hover {
+  background: #dc2626;
+  color: white;
+  border-color: #dc2626;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(220, 38, 38, 0.25);
+}

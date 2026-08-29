@@ -1,0 +1,89 @@
+/* ===== FURNI ADMIN EDIT PRODUCT ===== */
+:root {
+  --green-dark: #2d4a3e;
+  --yellow: #f0b429;
+  --bg: #f0f4f1;
+  --white: #ffffff;
+  --text-dark: #0d0d0d;
+  --text-muted: #4a5568;
+  --border: #dde8e3;
+  --shadow: 0 4px 20px rgba(45, 74, 62, 0.08);
+}
+
+h2 {
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 28px;
+  letter-spacing: -0.4px;
+}
+
+/* Wrap inputs in a card-style box */
+.form-box,
+form {
+  background: var(--white);
+  padding: 32px;
+  border-radius: 16px;
+  max-width: 460px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+
+label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+input,
+textarea {
+  width: 100%;
+  max-width: 420px;
+  padding: 12px 14px;
+  margin-bottom: 16px;
+  border-radius: 10px;
+  border: 1.5px solid var(--border);
+  background: #ffffff;
+  font-size: 14px;
+  color: var(--text-dark);
+  transition: all 0.2s ease;
+  display: block;
+  box-sizing: border-box;
+  font-family: inherit;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--green-dark);
+  background: var(--white);
+  box-shadow: 0 0 0 3px rgba(45, 74, 62, 0.08);
+}
+
+/* ===== UPDATE BUTTON ===== */
+button {
+  padding: 12px 28px;
+  background: var(--yellow);
+  color: var(--green-dark);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 0.3px;
+  transition: all 0.25s ease;
+}
+
+button:hover {
+  background: #d9a020;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(240, 180, 41, 0.4);
+}
+
+button:active {
+  transform: translateY(0);
+}

@@ -1,0 +1,41 @@
+<h2>Orders</h2>
+
+<div *ngIf="loading">
+  Loading orders...
+</div>
+
+<table *ngIf="!loading && orders.length > 0" class="order-table">
+
+  <thead>
+    <tr>
+      <th>Customer</th>
+      <th>City</th>
+      <th>State</th>
+      <th>Total</th>
+      <th>Date</th>
+    </tr>
+  </thead>
+
+  <tbody>
+
+    <tr *ngFor="let order of orders">
+
+      <td>{{ order?.customer?.name }}</td>
+
+      <td>{{ order?.customer?.city }}</td>
+
+      <td>{{ order?.customer?.state }}</td>
+
+      <td>₹{{ order?.totalAmount }}</td>
+
+      <td>{{ order?.createdAt | date:'medium' }}</td>
+
+    </tr>
+
+  </tbody>
+
+</table>
+
+<div *ngIf="!loading && orders.length === 0">
+  No orders found.
+</div>

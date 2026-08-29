@@ -1,0 +1,21 @@
+<div class="container mt-5" style="max-width: 450px;">
+  <h2 class="mb-4 text-center">My Profile</h2>
+
+  <div class="card p-4 mt-3 mb-5">
+
+    <div class="mb-3">
+      <label>Name</label>
+      <input class="form-control" [value]="user?.name" readonly />
+    </div>
+
+    <div class="mb-4">
+      <label>Email</label>
+      <input class="form-control" [value]="user?.email" readonly />
+    </div>
+
+    <button class="btn btn-danger w-100" (click)="logout()">
+      Logout
+    </button>
+
+  </div>
+</div>

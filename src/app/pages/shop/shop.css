@@ -1,0 +1,30 @@
+/* 🔥 Force Furni sections to stay visible */
+.untree_co-section,
+.product-section,
+.before-footer-section {
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: block !important;
+  height: auto !important;
+}
+
+.card {
+  opacity: 1 !important;
+  transform: none !important;
+}
+/* Restore Furni transition speed */
+.product-item,
+.product-thumbnail,
+.product-item:before,
+.icon-cross {
+  transition: 0.5s all ease !important;
+}
+
+/* Normalize product fonts to original Furni look */
+.product-title {
+  font-weight: 600;
+}
+
+.product-price {
+  font-weight: 700 !important; /* was feeling too heavy at 800 */
+}

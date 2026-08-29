@@ -1,0 +1,115 @@
+/* ===== FURNI ADMIN ORDERS ===== */
+:root {
+  --green-dark: #2d4a3e;
+  --yellow: #f0b429;
+  --bg: #f0f4f1;
+  --white: #ffffff;
+  --text-dark: #0d0d0d;
+  --text-muted: #4a5568;
+  --border: #dde8e3;
+  --shadow: 0 4px 20px rgba(45, 74, 62, 0.08);
+}
+
+.orders-container {
+  padding: 0;
+}
+
+.page-title {
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 28px;
+  letter-spacing: -0.4px;
+}
+
+.table-wrapper {
+  background: var(--white);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+}
+
+.order-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: transparent;
+}
+
+.order-table thead {
+  background: var(--green-dark);
+}
+
+.order-table th {
+  background: transparent;
+  color: #2d4a3e;
+  padding: 14px 18px;
+  text-align: left;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
+
+.order-table td {
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--border);
+  font-size: 14px;
+  color: var(--text-dark);
+  vertical-align: middle;
+}
+
+.order-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.order-table tbody tr:hover {
+  background: #f3f6f4;
+}
+
+/* ===== STATUS BADGES ===== */
+.badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.badge-paid,
+td:has([data-status="paid"]),
+.status-paid {
+  background: rgba(45, 74, 62, 0.1);
+  color: var(--green-dark);
+}
+
+.badge-pending,
+.status-pending {
+  background: rgba(240, 180, 41, 0.15);
+  color: #9a6e00;
+}
+
+.badge-cancelled,
+.status-cancelled {
+  background: #fef2f2;
+  color: #dc2626;
+}
+
+/* ===== ACTION BUTTON ===== */
+.view-btn {
+  padding: 7px 16px;
+  background: var(--green-dark);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.view-btn:hover {
+  background: #1e3a2f;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(45, 74, 62, 0.25);
+}

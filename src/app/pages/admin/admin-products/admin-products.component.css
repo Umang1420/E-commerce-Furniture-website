@@ -1,0 +1,130 @@
+/* ===== FURNI ADMIN PRODUCTS ===== */
+:root {
+  --green-dark: #2d4a3e;
+  --yellow: #f0b429;
+  --bg: #f0f4f1;
+  --white: #ffffff;
+  --text-dark: #0d0d0d;
+  --text-muted: #4a5568;
+  --border: #dde8e3;
+  --shadow: 0 4px 20px rgba(45, 74, 62, 0.08);
+}
+
+h2 {
+  font-size: 26px;
+  font-weight: 700;
+  color: #111111;
+  margin-bottom: 28px;
+  letter-spacing: -0.4px;
+}
+
+/* ===== GRID: EXACTLY 5 PER ROW ===== */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+}
+
+/* ===== CARD ===== */
+.product-card {
+  background: var(--white);
+  border-radius: 14px;
+  padding: 20px 16px 16px;
+  text-align: center;
+  border: 1px solid var(--border);
+  transition: all 0.25s ease;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 32px rgba(45, 74, 62, 0.14);
+  border-color: var(--green-dark);
+}
+
+/* ===== IMAGE ===== */
+.product-card img {
+  width: 100%;
+  height: 140px;
+  object-fit: contain;
+  margin-bottom: 14px;
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover img {
+  transform: scale(1.05);
+}
+
+/* ===== TEXT ===== */
+.product-card p {
+  margin: 4px 0;
+  font-size: 13.5px;
+  color: #111111;
+}
+
+.product-card .product-name {
+  font-weight: 700;
+  font-size: 14px;
+  color: #111111;
+}
+
+.product-card .product-price {
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--green-dark);
+  margin: 6px 0 12px;
+}
+
+/* ===== BUTTON ROW ===== */
+.product-card .btn-row {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  margin-top: 12px;
+}
+
+/* ===== BUTTON BASE ===== */
+.product-card button {
+  flex: 1;
+  margin: 6px;
+  padding: 8px 6px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 13px;
+  transition: all 0.2s ease;
+  letter-spacing: 0.2px;
+}
+
+/* ===== EDIT BUTTON ===== */
+.product-card button.edit {
+  background: var(--green-dark);
+  color: #2d4a3e;
+  border: 1px solid #fecaca;
+  padding: 9px;
+}
+
+.product-card button.edit:hover {
+  background: #2d4a3e;
+  color: white;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(45, 74, 62, 0.3);
+  border-color: #dc2626;
+}
+
+/* ===== DELETE BUTTON ===== */
+.product-card button.delete {
+  background: #fef2f2;
+  color: #dc2626;
+  border: 1px solid #fecaca;
+}
+
+.product-card button.delete:hover {
+  background: #dc2626;
+  color: white;
+  border-color: #dc2626;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(220, 38, 38, 0.25);
+}

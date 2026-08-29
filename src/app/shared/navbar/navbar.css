@@ -1,0 +1,7 @@
+.custom-navbar {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  background-color: #2f2f2f; /* same as navbar */
+}
+ 

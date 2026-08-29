@@ -1,0 +1,11 @@
+<h2>Add Product</h2>
+
+<div class="form-box">
+  <input placeholder="Name" [(ngModel)]="product.name">
+  <input type="number" placeholder="Price" [(ngModel)]="product.price">
+  <input placeholder="Image filename (product 8.png)" [(ngModel)]="product.image">
+  <input placeholder="Category (Chair / Sofa)" [(ngModel)]="product.category">
+  <textarea placeholder="Description" [(ngModel)]="product.description"></textarea>
+
+  <button (click)="addProduct()">Add Product</button>
+</div>
